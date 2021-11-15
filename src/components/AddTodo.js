@@ -8,7 +8,7 @@ const AddTodo = () => {
     const [value, setValue] = useState('');
 
     const dispatch = useDispatch();
-    const todos = useSelector(state => state)
+    const todos = useSelector(state => state.cards)
     console.log(todos)
 
     // const setTodo = (data) => {
@@ -16,17 +16,6 @@ const AddTodo = () => {
     // }
 
 
-    // const saveTodo = () => {
-        
-    //         [...todos, {
-    //             id: Math.floor((Math.random() * 100)+1),
-    //             title: value,
-    //             completed: 'added'
-    //             }
-    //         ]
-    //     )
-    //     setValue('')
-    // }
 
     return (
         <div>

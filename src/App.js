@@ -15,12 +15,9 @@ function App() {
 
 
     return (
-        // <Context.Provider value={{handleAddTodo, addTodo, todo, setTodo}}>
         <div className="container_main">
             <FormTodo addTodo={addTodo}  handleAddTodo={handleAddTodo}/>
         </div>
-        // {/* // </Context.Provider> */}
-
     );
 }
 

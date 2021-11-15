@@ -15,9 +15,9 @@ export const deleteTodo = (todoId) => {
   }
 
 }
-export const changeCompleted = (completed) => {
+export const changeCompleted = (data) => {
   return {
     type: CHANGE_COMPLETED,
-    payload: completed,
+    payload: data
   }
 }
