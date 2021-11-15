@@ -5,49 +5,39 @@ import { addTodo } from '../actions';
 
 
 const AddTodo = () => {
-    const [value, setValue] = useState('');
+  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
+  const todos = useSelector(state => state.cards)
 
-    const dispatch = useDispatch();
-    const todos = useSelector(state => state.cards)
-    console.log(todos)
+  return (
+    <div>
+      <div className="todo_new"></div>
+      <div className="input_wrapper">
+      <input
+        className="input_todo"
+        type = "text"
+        placeholder="add a task..."
+        value={value}
+        onChange={(e) => setValue((e.target.value))}
+      />
+      <button 
+        className="button_todo"
+        onClick={() => {
+          dispatch(                        
+          addTodo(
+            {
+              id: new Date().getTime(),
+              title: value,
+              completed: 'added'
+            })
+          );
+        setValue('')
 
-    // const setTodo = (data) => {
-    //     dispatch(actionGetTodos(data))
-    // }
-
-
-
-    return (
-        <div>
-            <div className="todo_new"></div>
-            <div className="input_wrapper">
-                <input
-                    className="input_todo"
-                    type = "text"
-                    placeholder="add a task..."
-                    value={value}
-                    onChange={(e) => setValue((e.target.value))}
-                />
-                <button 
-                    className="button_todo"
-                    onClick={() => {
-                        dispatch(                        
-                            addTodo(
-                                {
-                                    id: new Date().getTime(),
-                                    title: value,
-                                    completed: 'added'
-                                })
-                        );
-                            setValue('')
-                            
-                    }}
-                >save</button>
-            </div>
-
-
-        </div>
-    );
+        }}
+      >save</button>
+      </div>
+    </div>
+  );
 };
 
 export default AddTodo;

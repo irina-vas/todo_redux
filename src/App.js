@@ -1,24 +1,18 @@
 import React, { useState} from 'react';
 import './App.css';
-
 import FormTodo from './components/FormTodo';
 
-
 function App() {
-    // const [todo, setTodo] = useState([]);
-    const [addTodo, setAddTodo] = useState(false);
+  const [addTodo, setAddTodo] = useState(false);
+  const handleAddTodo = () => {
+    setAddTodo(true);
+  }
 
-    const handleAddTodo = () => {
-        setAddTodo(true);
-    }
-
-
-
-    return (
-        <div className="container_main">
-            <FormTodo addTodo={addTodo}  handleAddTodo={handleAddTodo}/>
-        </div>
-    );
+  return (
+    <div className="container_main">
+      <FormTodo addTodo={addTodo}  handleAddTodo={handleAddTodo}/>
+    </div>
+  );
 }
 
 export default App;
